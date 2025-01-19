@@ -1,4 +1,4 @@
-# Write a python program to update a value in a dictionary with a specified key.
+# Write a python program to update a value in a dictionary with a specified Value.
 
 m ={
     "a" : 1,
