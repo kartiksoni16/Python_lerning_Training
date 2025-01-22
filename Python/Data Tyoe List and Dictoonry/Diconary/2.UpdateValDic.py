@@ -14,4 +14,7 @@ print(m)
 m[4] = 29
 m[1]="Kartik"
 
+m["a"] = 20
+
+
 print(m)

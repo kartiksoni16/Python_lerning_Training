@@ -17,25 +17,18 @@ values_list = []
 while True:
     user_input = input("Enter a value (press Enter to stop): ")
 
-    # If the user enters nothing, stop the loop
     if user_input == "":
         break
-
-    # Try to determine the type of the value
-    if user_input.isdigit():  # Check if it's an integer
+    
+    if user_input.isdigit():  
         converted_value = int(user_input)
+    elif user_input.isalpha():
+        converted_value = user_input
     else:
-        try:
-            # Attempt to convert to float
-            converted_value = float(user_input)
-        except ValueError:
-            # If it fails, treat as string
-            converted_value = user_input
+        converted_value = float(user_input)    
 
-    # Add the converted value to the list
     values_list.append(converted_value)
 
-# Print the result
 print("Values and their types:")
 for value in values_list:
     print(f"Value: {value}, Type: {type(value)}")
@@ -58,7 +51,7 @@ while True:
 
 print(value_lst)
 
-# 4. 
+# 4. Manage a shopping list with python list,
 
 list_value = []
 
@@ -72,10 +65,118 @@ while True:
 
 print(list_value)
 
-# 8
-# 1
 
-# Use list to store item name
+# Manage two lists to store an integer values.
+
+first=[]
+second=[]
+
+while True:
+    user_new = input("Enter number from the user")
+
+    if user_new == "":
+        break
+
+    user_new = int(user_new)
+
+    if user_new % 2 == 0:
+        first.append(user_new)
+    else:
+        second.append(user_new)
+
+print("Even Number",first)
+print("Odd Number",second)
+
+print("Maximum No from",max(first))
+
+
+# Manage two lists, so that you can manage customer name and customer shopping list
+
+cs_name = []
+cs_shop_list= []
+
+while True:
+    
+    cs_n = input("Enter Customer Name : ").strip()
+
+    if not cs_n:
+        break
+
+    cs_name.append(cs_n)
+
+
+    shopping_list = []
+    print(f"Enter shopping items for {cs_name} (type nothing and press Enter to finish):")
+
+    while True:
+
+        cs_list = input("Enter Customer Shopping list").strip()
+
+        if not cs_list:
+            break
+
+        shopping_list.append(cs_list)
+
+    cs_shop_list.append(shopping_list)
+
+
+for customer,item in zip(cs_name,cs_shop_list):
+    print(f"{customer} : {item}")
+
+
+
+# Wite a python program to enter multiple values into a two lists and merge them but remove duplication of value only appear one time.
+
+
+# lst_1 =[]
+# lst_2=[]
+
+# def merge_list(v):
+
+#     l = input("Enter first value").strip()
+
+#     while True:
+
+#         if not l:
+#             break
+
+#         lst_2.append(l)
+
+# lst_1 = merge_list("List 1")
+# lst_2 = merge_list("List 2")
+
+# merge = list(set(lst_1 + lst_2))
+
+# print(merge)
+
+# Define global variables
+lst_1 = []
+lst_2 = []
+
+def merge_list(prompt):
+    global lst_1, lst_2  # Declare that we're using the global variables
+    print(f"Enter values for {prompt} (type nothing and press Enter to stop):")
+    while True:
+        value = input("Enter value: ").strip()
+        if not value:  # Stop when input is empty
+            break
+        if prompt == "List 1":
+            lst_1.append(value)  # Modify global variable lst_1
+        elif prompt == "List 2":
+            lst_2.append(value)  # Modify global variable lst_2
+
+# Use the function to populate the lists
+merge_list("List 1")
+merge_list("List 2")
+
+# Merge and remove duplicates
+merge = list(set(lst_1 + lst_2))
+
+# Print the merged list
+print("Merged List with Unique Values:", merge)
+
+
+# Write a python program to manage shopping list.
 
 lst_value = []
 

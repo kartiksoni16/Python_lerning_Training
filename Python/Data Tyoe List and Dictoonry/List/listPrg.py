@@ -11,10 +11,10 @@ print(type(k))
 for i in k:
     print(i)
 
-# # 1. Write a Python program to sum all the items in a list.
+# # # 1. Write a Python program to sum all the items in a list.
 
 input = input("Enter List Iteam").split()
-
+print(input)
 s = 0
 for i in input:
     s = s + int(i)
@@ -43,8 +43,42 @@ f = list(s)
 print(f)
 print(f[-2])
 
-print(k)
+print(f)
 
+# 4. Write a python program to add integer values into a list.
+#     Add value at the beginning of the list if the value is odd.
+#     Add value at the end of the list if the value is even.
+
+def find_odd_even(value,list):
+    if value%2 == 0:
+        list.append(value)
+    else:
+        list.insert(0,value)
+
+l = []
+values=[2,3,4,5,3,2,4]
+
+for value in values:
+    find_odd_even(value,l)
+ 
+print(l)
+
+# 5.
+
+def find_count_value(lt):
+    result=[]
+    unique = set(lt)
+    # print(unique)
+    for value in unique:
+        count = lt.count(value)
+        result.append((value,count))
+    return sorted(result)
+    
+
+
+lt = [1,2,3,3,2,1,5,6,7,7,7,8,9,0,1,2,0]
+result = find_count_value(lt)
+print(result)
 
 
 # 6. Write a python program to filter out the list of numbers that are odd and even
@@ -82,43 +116,10 @@ print(even_number)
 switch_1 = int(input("Enter Numer: "))
 switch_2 = int(input("Enter Numer: "))
 
-if switch_1:
-    if switch_2:
+if switch_1  == 1:
+    if switch_2 == 1:
         print ("1")
     else:
         print("0")
-
-# 4. Write a python program to add integer values into a list.
-#     Add value at the beginning of the list if the value is odd.
-#     Add value at the end of the list if the value is even.
-
-def find_odd_even(value,list):
-    if value%2 == 0:
-        list.append(value)
-    else:
-        list.insert(0,value)
-
-l = []
-values=[2,3,4,5,3,2,4]
-
-for value in values:
-    find_odd_even(value,l)
- 
-print(l)
-
-# 5.
-
-def find_count_value(lt):
-    result=[]
-    unique = set(lt)
-    # print(unique)
-    for value in unique:
-        count = lt.count(value)
-        result.append((value,count))
-    return sorted(result)
-    
-
-
-lt = [1,2,3,3,2,1,5,6,7,7,7,8,9,0,1,2,0]
-result = find_count_value(lt)
-print(result)
+else:
+    print("Number is not right It should be under 1 and 0")
