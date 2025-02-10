@@ -18,11 +18,11 @@ while True:
     elif choice == "2":
         value = float(input("Enter a number to add: "))
         my_number += value
-        print(f"My Number after addition: {my_number}")
+        # print(f"My Number after addition: {my_number}")
     elif choice == "3":
         value = float(input("Enter a number to subtract: "))
         my_number -= value
-        print(f"My Number after subtraction: {my_number}")
+        # print(f"My Number after subtraction: {my_number}")
     elif choice == "4":
         value = float(input("Enter a number to multiply: "))
         my_number *= value
