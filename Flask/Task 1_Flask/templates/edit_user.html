@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Edit User</h2>
+
+<form method="POST">
+    <label>Username:</label>
+    <input type="text" name="username" value="{{ user.username }}" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" value="{{ user.email }}" required>
+
+    <label>Role:</label>
+    <select name="role">
+        <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>Admin</option>
+        <option value="manager" {% if user.role == 'manager' %}selected{% endif %}>Manager</option>
+        <option value="user" {% if user.role == 'user' %}selected{% endif %}>User</option>
+    </select>
+
+    <button type="submit">Update User</button>
+</form>
+
+<form method="GET" action="{{ url_for('app_routes.dashboard') }}">
+    <button type="submit">Back to Dashboard</button>
+</form>
+
+{% endblock %}

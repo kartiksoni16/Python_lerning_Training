@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Admin Dashboard</h2>
+
+<form method="GET" action="{{ url_for('app_routes.create_user') }}">
+    <button type="submit">+ Add New User</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+            <form method="GET" action="{{ url_for('app_routes.update_user', user_id=user.id) }}" style="display:inline;">
+                <button class="edit" type="submit">Edit</button>
+            </form>
+            
+            {% if current_user.role == "admin" %}
+            <form method="POST" action="{{ url_for('app_routes.delete_user', user_id=user.id) }}" style="display:inline;">
+                <button type="submit" class="btn" onclick="return confirm('Are you sure?');">Delete</button>
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

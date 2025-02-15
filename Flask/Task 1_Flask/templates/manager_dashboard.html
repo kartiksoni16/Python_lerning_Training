@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mt-4">Manager Dashboard</h2>
+    <p>Welcome, {{ user.username }}! You can manage users but cannot delete them.</p>
+
+    <form method="GET" action="{{ url_for('app_routes.create_user') }}">
+        <button type="submit">+ Add New User</button>
+    </form>
+
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role }}</td>
+                <td>
+                    <form method="GET" action="{{ url_for('app_routes.update_user', user_id=user.id) }}" style="display:inline;">
+                        <button type="submit" class="btn btn-warning">Edit</button>
+                    </form>
+                
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
